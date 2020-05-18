@@ -9,8 +9,6 @@ import {
 import RadioGroup from '../../components/radioGroup';
 import * as C from '../../shared/constants';
 import ListItem from '../../components/listItem';
-// import itemImage from '../../assets/images/cafeda.png';
-// import WebImage from 'react-native-web-image'
 export default class OrderScreen extends PureComponent {
   data = [
     {
@@ -39,7 +37,7 @@ export default class OrderScreen extends PureComponent {
     },
     {
       id: '2',
-      name: 'Cà phê sữa Cà phê sữa đá',
+      name: 'Cà phê sữa tươi',
       price: 35000,
       unit: 'đ',
     },

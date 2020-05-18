@@ -22,7 +22,7 @@ function RootStack() {
         name="ItemScreen"
         component={ItemScreen}
         options={{
-          title: 'Buy Item',
+          title: 'Order',
           headerShown: true,
           cardStyle: {
             backgroundColor: 'transparent',

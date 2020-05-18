@@ -74,14 +74,8 @@ export default function Item(props) {
       onStartShouldSetResponder={GoToOrderItem}
       style={styles.rectItem}
     >
-      {/* <Image source={{uri: 'asset:/images/cafeda.png'}} style={{width: 40, height: 40}} /> */}
-      {/* <WebImage source={require('../../assets/images/cafeda.png')} style={{width: 80, height: 80}}/> */}
       <Image
         style={styles.itemImage}
-        // source={{
-        //   uri:
-        //     'https://res.cloudinary.com/vianey/image/upload/v1586581266/cafeda.jpg',
-        // }}
         source={require('../assets/images/caphe_den.jpg') }
       />
       <View style={styles.rectContent}>

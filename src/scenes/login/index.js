@@ -6,8 +6,6 @@ function LoginScreen({ navigation }) {
   const [isLogin,setIsLogin] = useState(false);
   const [userName,setUserName] = useState("");
   const [password,setPassword] = useState("");
-
-  //const userState = useSelector(state => state.user);
   const dispacth = useDispatch();
   
   function onPressLogin() {
@@ -34,14 +32,14 @@ function LoginScreen({ navigation }) {
         style={styles.formInput}
         value={userName}
       />
-      <TextInput
+    <TextInput
         placeholder="password"
         secureTextEntry={true}
         onChange={(event) => setPassword(event.nativeEvent.text)}
         style={styles.formInput}
         value={password}
       />
-      <Button
+    <Button
         title = {isLogin ? "Logout" : "Login"}
         onPress = {onPressLogin}
       />

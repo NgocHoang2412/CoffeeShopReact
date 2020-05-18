@@ -39,10 +39,6 @@ function ItemScreen({ navigation, route }) {
       <View style={styles.header}>
         <Image
           style={styles.itemImage}
-          // source={{
-          //   uri:
-          //     'https://res.cloudinary.com/vianey/image/upload/v1586581266/cafeda.jpg',
-          // }}
           source={require('../../assets/images/caphe_den.jpg') }
         />
         <View style={styles.titleHeader}>
