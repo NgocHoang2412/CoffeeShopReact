@@ -1,0 +1,11 @@
+{
+	"editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.tabSize": 2,
+    "prettier.useTabs": true
+	"eslint.autoFixOnSave": true,
+	"eslint.packageManager": "yarn",
+	"editor.detectIndentation": false,
+	"editor.rulers": [120],
+	"files.insertFinalNewline": true,
+	"files.autoSave": "onFocusChange",
+}
