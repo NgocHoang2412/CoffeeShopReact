@@ -6,6 +6,8 @@ import * as C from '../../shared/constants';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; //Platform.OS === 'web'
 import { useSelector, useDispatch } from 'react-redux';
+import StoreScreen from './stores';
+
 let BarIcon = {};
 if (Platform.OS === 'web') {
   BarIcon = MaterialCommunityIcons;//Platform.OS === 'web'
@@ -87,12 +89,12 @@ function HomeContainer() {
         }}
       />
       <Tab.Screen
-        name="OrderPay"
-        component={OrderPayScreen}
+        name="Store"
+        component={StoreScreen}
         options={{
-          tabBarLabel: 'Tính tiền',
+          tabBarLabel: 'Cửa Hàng',
           tabBarIcon: ({color, size}) => (
-            <BarIcon name="currency-usd" color={color} size={size} />
+            <BarIcon name="store" color={color} size={size} />
           ),
         }}
       />
