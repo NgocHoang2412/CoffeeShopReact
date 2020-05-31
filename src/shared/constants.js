@@ -18,3 +18,10 @@ export const COLORS = {
   itemBorderColor: '#979197',
 };
 
+const API_URL = 'http://localhost:8080/api';
+export const API = {
+  backendUrl: API_URL,
+  getItem: '/items',
+  requestTimeout: 2000,
+};
+

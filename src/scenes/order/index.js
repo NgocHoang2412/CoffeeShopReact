@@ -9,6 +9,14 @@ import {
 import RadioGroup from '../../components/radioGroup';
 import * as C from '../../shared/constants';
 import ListItem from '../../components/listItem';
+import * as authService from '../../shared/services/auth.service';
+
+let itemsService;
+async function onLoadAllItems() {
+  itemsService = await authService.getItems();
+  console.log("items get = " + JSON.stringify(itemsService));
+} 
+
 export default class OrderScreen extends PureComponent {
   data = [
     {
@@ -80,6 +88,7 @@ export default class OrderScreen extends PureComponent {
   ];
 
   constructor(props) {
+    onLoadAllItems();
     super(props);
     this.state = {selectedIndex: 0};
   }
