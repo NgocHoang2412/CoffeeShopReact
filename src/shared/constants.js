@@ -21,6 +21,7 @@ export const COLORS = {
 const API_URL = 'http://localhost:8080/api';
 export const API = {
   backendUrl: API_URL,
+  auth: '/auth',
   getItem: '/items',
   requestTimeout: 2000,
 };

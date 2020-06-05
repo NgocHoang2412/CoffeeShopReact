@@ -1,24 +1,27 @@
 import React, {useState} from 'react'
 import { StyleSheet, View, Text, Alert, Button, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import * as authService from '../../shared/services/auth.service';
 
 function LoginScreen({ navigation }) {
   const [isLogin,setIsLogin] = useState(false);
-  const [userName,setUserName] = useState("");
+  const [username,setUserName] = useState("");
   const [password,setPassword] = useState("");
   const dispacth = useDispatch();
   
-  function onPressLogin() {
-   
-    setIsLogin(true);
-    navigation.navigate('HomeContainer',{
-      userName : userName,
-    });
-    console.log("You login this page with username = " + userName + " and password = "+ password);
+  async function onPressLogin() {
+    let response = await authService.login({username, password});
+    if(response === true){
+      setIsLogin(true);
+      navigation.navigate('HomeContainer',{
+        userName : username,
+      });
+      console.log("You login this page with username = " + username + " and password = "+ password);
 
-    dispacth({type : 'USERNAME',
-              userName : userName,
-    });
+      dispacth({type : 'USERNAME',
+               userName : username,
+      });
+    }
   }
   return (
     
@@ -30,7 +33,7 @@ function LoginScreen({ navigation }) {
         placeholder="username"
         onChange={(event) => setUserName(event.nativeEvent.text)}
         style={styles.formInput}
-        value={userName}
+        value={username}
       />
     <TextInput
         placeholder="password"

@@ -5,3 +5,15 @@ export const getItems = async () => {
   let result = await axios.get(API.getItem)
   return result;
 }
+
+export const login = async (payload) => {
+  let result = await axios.post(API.auth, payload)
+  
+  if(result.status < 400){
+    const token = result.data ? result.data.accessToken : null;
+    if(token) {
+      return true;
+    }
+  }
+  return false;
+}
