@@ -50,9 +50,14 @@ function OrderPayScreen() {
   );
 }
 const Tab = createBottomTabNavigator();
-function HomeContainer() {
+function HomeContainer({route}) {
+  const { userName } = route.params;
+  const { itemsData } = route.params;
+  console.log("userName  = " , userName);
+  console.log("itemData  = " , itemsData);
     return (
     <Tab.Navigator
+      initialRouteName="OrderScreen"
       tabBarOptions={{
         activeTintColor: C.COLORS.textSelected,
         inactiveTintColor: C.COLORS.textUnselected,
@@ -68,16 +73,19 @@ function HomeContainer() {
           borderTopWidth:0,
         },
       }}>
-      <Tab.Screen
-        name="Order"
-        component={OrderScreen}
-        options={{
-          tabBarLabel: 'Order',
-          tabBarIcon: ({color, size}) => (
-            <BarIcon name="playlist-edit" color={color} size={size} />
-          ),
-        }}
-      />
+      <Tab.Screen 
+       name="Order"
+       //component={OrderScreen}
+       options={{
+         tabBarLabel: 'Order',
+         tabBarIcon: ({color, size}) => (
+           <BarIcon name="playlist-edit" color={color} size={size} />
+         ),
+       }}  
+      >
+      {props => <OrderScreen {...props} itemsData={itemsData} />} 
+      </Tab.Screen>
+      
       <Tab.Screen
         name="Cart"
         component={CartScreen}

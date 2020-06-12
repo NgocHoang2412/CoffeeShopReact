@@ -63,7 +63,7 @@ export default function Item(props) {
     navigation.navigate('ItemScreen',{
       itemId: props.item.id,
       itemName: props.item.name,
-      itemPrice: props.item.price,
+      itemPrice: props.item.defaultPrice,
       itemUnit: props.item.unit,
     });
     
@@ -76,14 +76,14 @@ export default function Item(props) {
     >
       <Image
         style={styles.itemImage}
-        source={require('../assets/images/caphe_den.jpg') }
+        source={require('../assets/images' + props.item.imageURL) }
       />
       <View style={styles.rectContent}>
         <View style={styles.rectChild1}>
           <Text style={styles.textLine1}>{props.item.name}</Text>
         </View>
         <View style={styles.rectChild2}>
-          <Text style={styles.textLine2}>{`${props.item.price} ${
+          <Text style={styles.textLine2}>{`${props.item.defaultPrice} ${
             props.item.unit
           }`}</Text>
           <AddCircle marginRight={props.textMarginLeft} />

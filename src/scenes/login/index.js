@@ -11,12 +11,17 @@ function LoginScreen({ navigation }) {
   
   async function onPressLogin() {
     let response = await authService.login({username, password});
+    let itemsData = await authService.getItems();
+    var itemsService = itemsData.data;
+    
     if(response === true){
       setIsLogin(true);
       navigation.navigate('HomeContainer',{
         userName : username,
+        itemsData : itemsService,
       });
       console.log("You login this page with username = " + username + " and password = "+ password);
+      console.log("You login  itemsService= "+ itemsService);
 
       dispacth({type : 'USERNAME',
                userName : username,

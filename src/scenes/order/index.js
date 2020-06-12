@@ -9,13 +9,6 @@ import {
 import RadioGroup from '../../components/radioGroup';
 import * as C from '../../shared/constants';
 import ListItem from '../../components/listItem';
-import * as authService from '../../shared/services/auth.service';
-
-let itemsService;
-async function onLoadAllItems() {
-  itemsService = await authService.getItems();
-  console.log("items get = " + JSON.stringify(itemsService));
-} 
 
 export default class OrderScreen extends PureComponent {
   data = [
@@ -88,8 +81,8 @@ export default class OrderScreen extends PureComponent {
   ];
 
   constructor(props) {
-    onLoadAllItems();
     super(props);
+    
     this.state = {selectedIndex: 0};
   }
   onChange = selectedIndex => {
@@ -97,7 +90,7 @@ export default class OrderScreen extends PureComponent {
   };
 
   render() {
-    const checkedStyle = StyleSheet.create({
+      const checkedStyle = StyleSheet.create({
       menu: {
         justifyContent: 'center',
         backgroundColor: C.COLORS.bgWhite,
@@ -167,7 +160,7 @@ export default class OrderScreen extends PureComponent {
             />
           </ScrollView>
         </SafeAreaView>
-        <ListItem style={styles.bodyContainer} items={this.items} />
+        <ListItem style={styles.bodyContainer} items={this.props.itemsData} />
       </View>
     );
   }
