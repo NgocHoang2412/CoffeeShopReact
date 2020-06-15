@@ -53,6 +53,7 @@ const Tab = createBottomTabNavigator();
 function HomeContainer({route}) {
   const { userName } = route.params;
   const { itemsData } = route.params;
+  const { categoriesData } = route.params;
   console.log("userName  = " , userName);
   console.log("itemData  = " , itemsData);
     return (
@@ -83,7 +84,7 @@ function HomeContainer({route}) {
          ),
        }}  
       >
-      {props => <OrderScreen {...props} itemsData={itemsData} />} 
+      {props => <OrderScreen {...props} categoriesData={categoriesData} itemsData={itemsData} />} 
       </Tab.Screen>
       
       <Tab.Screen

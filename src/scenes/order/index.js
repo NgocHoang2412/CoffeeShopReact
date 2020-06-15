@@ -152,7 +152,7 @@ export default class OrderScreen extends PureComponent {
         <SafeAreaView style={styles.headerMenu}>
           <ScrollView horizontal={true}>
             <RadioGroup
-              items={this.data}
+              items={this.props.categoriesData}
               selectedIndex={this.state.selectedIndex}
               onChange={this.onChange}
               checkedStyle={checkedStyle}

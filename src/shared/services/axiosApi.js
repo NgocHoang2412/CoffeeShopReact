@@ -7,5 +7,13 @@ export const instance = axios.create({
   headers: {'content-type' : 'application/json'},
 })
 
+export const setAuthToken = (token) => {
+  instance.defaults.headers.common.authorization = token;
+}
+
+export const clearAuthToken = () => {
+  instance.defaults.headers.common.authorization = '';
+
+}
 
 export default instance;

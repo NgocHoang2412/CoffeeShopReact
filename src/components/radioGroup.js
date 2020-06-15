@@ -12,7 +12,7 @@ function RadioButton(props) {
 function RadioGroup(props) {
   return props.items.map((item, index) => (
     <RadioButton
-      radioText={item.title}
+      radioText={item.name}
       isChecked={props.selectedIndex === index}
       styles={
         props.selectedIndex === index

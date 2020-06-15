@@ -17,6 +17,7 @@ function ItemScreen({ navigation, route }) {
   const { itemName } = route.params;
   const { itemPrice } = route.params;
   const { itemUnit } = route.params;
+  const { itemImageURL } = route.params;
 
   const [isSelectedHeart,setIsSelectedHeart] = useState(false);
   const [numberItemBuy,setNumberItemBuy] = useState(1);
@@ -39,7 +40,7 @@ function ItemScreen({ navigation, route }) {
       <View style={styles.header}>
         <Image
           style={styles.itemImage}
-          source={require('../../assets/images/caphe_den.jpg') }
+          source={require('../../assets/images' + itemImageURL) }
         />
         <View style={styles.titleHeader}>
           <Text style={{ marginLeft: 10, justifyContent: 'flex-start',fontSize: 30 }}>{itemName}</Text>

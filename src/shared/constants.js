@@ -23,6 +23,7 @@ export const API = {
   backendUrl: API_URL,
   auth: '/auth',
   getItem: '/items',
+  getCategories: '/categories',
   requestTimeout: 2000,
 };
 
