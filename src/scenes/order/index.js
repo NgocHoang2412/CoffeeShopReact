@@ -11,75 +11,7 @@ import * as C from '../../shared/constants';
 import ListItem from '../../components/listItem';
 
 export default class OrderScreen extends PureComponent {
-  data = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'Phổ biến',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Cà phê',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Sinh tố',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d73',
-      title: 'Món khác',
-    },
-  ];
-  items = [
-    {
-      id: '1',
-      name: 'Cà phê đen',
-      price: 29000,
-      unit: 'đ',
-    },
-    {
-      id: '2',
-      name: 'Cà phê sữa tươi',
-      price: 35000,
-      unit: 'đ',
-    },
-    {
-      id: '3',
-      name: 'Cà phê ý',
-      price: 40000,
-      unit: 'đ',
-    },
-    {
-      id: '4',
-      name: 'Cà phê mỹ',
-      price: 38000,
-      unit: 'đ',
-    },
-    {
-      id: '1',
-      name: 'Cà phê đen',
-      price: 29000,
-      unit: 'đ',
-    },
-    {
-      id: '2',
-      name: 'Cà phê sữa',
-      price: 35000,
-      unit: 'đ',
-    },
-    {
-      id: '3',
-      name: 'Cà phê ý',
-      price: 40000,
-      unit: 'đ',
-    },
-    {
-      id: '4',
-      name: 'Cà phê mỹ',
-      price: 38000,
-      unit: 'đ',
-    },
-  ];
-
+  
   constructor(props) {
     super(props);
     

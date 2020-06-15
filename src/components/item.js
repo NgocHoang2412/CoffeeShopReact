@@ -66,6 +66,8 @@ export default function Item(props) {
       itemPrice: props.item.defaultPrice,
       itemUnit: props.item.unit,
       itemImageURL: props.item.imageURL,
+      itemSize: props.item.size,
+      itemDescription: props.item.description,
     });
     
   }

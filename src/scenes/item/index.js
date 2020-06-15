@@ -1,5 +1,6 @@
 import React, {useState}  from 'react'
 import { View, Text, StyleSheet, ScrollView, Image, Platform, Button } from 'react-native';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { AntDesign } from '@expo/vector-icons'; //Platform.OS === 'web'
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,6 +19,8 @@ function ItemScreen({ navigation, route }) {
   const { itemPrice } = route.params;
   const { itemUnit } = route.params;
   const { itemImageURL } = route.params;
+  const { itemSize } = route.params;
+  const { itemDescription } = route.params;
 
   const [isSelectedHeart,setIsSelectedHeart] = useState(false);
   const [numberItemBuy,setNumberItemBuy] = useState(1);
@@ -32,7 +35,12 @@ function ItemScreen({ navigation, route }) {
     unit : itemUnit,
     num : numberItemBuy,
   };
-
+  var radio_props = [
+    {label: 'Medium : +' + itemSize.Medium + " " + itemUnit, value: 0 },
+    {label: 'Big : +' + itemSize.Big + " " + itemUnit, value: 1 }
+  ];
+  const [sizeItem,setSizeItem] = useState("Medium");
+  
   return (
     
     <View style={styles.container}>
@@ -64,9 +72,17 @@ function ItemScreen({ navigation, route }) {
       </View>
 
       <View style={styles.boder}>
-        <ScrollView >
-          <Text style={{flex: 1, justifyContent: 'center',fontSize: 30 }}>Main Content!</Text>
-        </ScrollView>
+        <ScrollView>
+        <Text style={{flex: 1, justifyContent: 'left',fontSize: 50 }}>Choose size</Text>
+        <RadioForm
+          radio_props={radio_props}
+          initial={-1}
+          buttonColor={'#fdb561'}
+          selectedButtonColor={'#fdb561'}
+          onPress={(value) => {setSizeItem({value:value})}}
+        />
+        <Text style={{flex: 1, justifyContent: 'left',fontSize: 30 }}>{itemDescription}</Text>
+        </ScrollView>       
       </View>
 
       <View style={styles.bottom}>
@@ -89,7 +105,8 @@ function ItemScreen({ navigation, route }) {
         />
         <Button 
           color='orange'
-          title = {parseInt(itemPrice)*numberItemBuy} 
+          //title = {parseInt(itemPrice)*numberItemBuy} 
+          title="ORDER"
           onPress = {()=>{console.log('Buy item : ' + numberItemBuy + "  price : "+ parseInt(itemPrice));
           navigation.navigate("HomeContainer");
           dispacth({type : 'ADD_TO_CART',
@@ -130,8 +147,8 @@ const styles = StyleSheet.create({
   },
   boder: {
     flex: 0.6,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "left",
+    alignItems: "left",
   },
   bottom: {
     flex: 0.2,
